@@ -10,8 +10,6 @@
 - [docs.1c-bitrix.ru](https://docs.1c-bitrix.ru/) — официальная документация "1С-Битрикс: Управление сайтом".
 - [apidocs.bitrix24.ru](https://apidocs.bitrix24.ru/) — REST документация "Битрикс24".
 
-[![skills.sh](https://skills.sh/b/bitrix-tools/bitrix-best-practice)](https://skills.sh/bitrix-tools/bitrix-best-practice)
-
 ## Skills
 
 Скиллы лежат в каталоге [`skills/`](./skills/).
