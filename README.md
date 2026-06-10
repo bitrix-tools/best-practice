@@ -23,13 +23,13 @@
 
 Через библиотеку оркестрации скиллов [skills](https://www.npmjs.com/package/skills), все скиллы сразу:
 ```bash
-npx skills add bitrix-tools/bitrix-best-practice
+npx skills add bitrix-tools/best-practice
 ```
 
 Или конкретные:
 ```bash
-npx skills add bitrix-tools/bitrix-best-practice --skill bitrix-best-practice-core
-npx skills add bitrix-tools/bitrix-best-practice --skill bitrix-best-practice-sql
+npx skills add bitrix-tools/best-practice --skill bitrix-best-practice-core
+npx skills add bitrix-tools/best-practice --skill bitrix-best-practice-sql
 ```
 
 ## Specs
@@ -43,7 +43,7 @@ Specs — тот же контент rules, но в универсальной �
 
 Распаковка каталога `specs/` в текущую директорию:
 ```bash
-curl -fsSL "https://github.com/bitrix-tools/bitrix-best-practice/releases/download/1.0.0/specs.tar.gz" | tar xz
+curl -fsSL "https://github.com/bitrix-tools/best-practice/releases/download/1.0.0/specs.tar.gz" | tar xz
 ```
 
 Инструкция для агента:
