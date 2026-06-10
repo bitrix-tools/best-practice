@@ -23,6 +23,8 @@ Skill описывает project-specific best practices для SQL, ORM и до
 
 ## Выбор rule-файла
 
+<!-- rules-dictionary:start -->
+
 ### Когда читать `rules/query-execution.md`
 
 Читай `rules/query-execution.md`, если задача затрагивает хотя бы одну из этих областей:
@@ -77,3 +79,5 @@ Skill описывает project-specific best practices для SQL, ORM и до
 - выбор между обычной ORM-записью, batch-операцией, merge/upsert и delete-by-filter;
 - события ORM при записи, `ignoreEvents`, cache cleanup и caveats batch persistence;
 - массовая запись или обновление нескольких строк через ORM lifecycle.
+
+<!-- rules-dictionary:end -->
