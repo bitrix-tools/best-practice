@@ -1,0 +1,19 @@
+# Popular IDE-specific directories
+.idea
+.vscode
+*.sublime-workspace
+*.sublime-project
+*.code-workspace
+*.sw?
+*.DS_Store
+
+# Agent platforms
+.claude
+.codex
+.cursor
+
+# other agent/work/experiment folders
+.openai
+.anthropic
+.llama
+.palm
