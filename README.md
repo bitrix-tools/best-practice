@@ -19,11 +19,13 @@
 
 ### Установка
 
+Все скиллы сразу:
 ```bash
-# оба skill'а из репозитория
 npx skills add bitrix-tools/bitrix-best-practice
+```
 
-# или по одному
+Или конкретные:
+```bash
 npx skills add bitrix-tools/bitrix-best-practice --skill bitrix-best-practice-core
 npx skills add bitrix-tools/bitrix-best-practice --skill bitrix-best-practice-sql
 ```
@@ -42,15 +44,17 @@ Specs — тот же контент rules, но в универсальной �
 
 ### Как добавить
 
-Скопируйте папку [`specs/`](specs/) из репозитория в удобное место в workspace. Или через git:
+Скопируйте папку [`specs/`](specs/) из репозитория в удобное место в workspace.
+
+Или через git:
 ```bash
-# sparse checkout — только specs/
 git clone --filter=blob:none --sparse https://github.com/bitrix-tools/bitrix-best-practice.git
 cd bitrix-best-practice && git sparse-checkout set specs
+```
 
-# submodule в свой Bitrix-проект
+Либо можно подключить репозиторий как git-submodule:
+```bash
 git submodule add https://github.com/bitrix-tools/bitrix-best-practice.git .bitrix-best-practice
-# использовать .bitrix-best-practice/specs/
 ```
 
 Инструкция для агента:
