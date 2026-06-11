@@ -1,6 +1,6 @@
 ---
 name: bitrix-best-practice-core
-description: Use for Bitrix core patterns controllers/actions, errors/ErrorCollection, results/Result, requests/JSON body, responses/Json/Redirect, routing/routes, loaders/module include, GeoIP/IP lookup, URI/URL params, HTTP client/webhooks, JWT/JWK, date-time parsing, options/settings, logging/PSR-3, UUID/generation, validation/attributes, service locator/DI, persistent storage/runtime state, cache/invalidations.
+description: Use when designing, reviewing, or implementing any PHP code.
 ---
 
 # Bitrix Core Best Practice
