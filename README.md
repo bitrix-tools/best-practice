@@ -17,6 +17,11 @@
 
 ### Как добавить
 
+Напрямую попросить агента:
+```txt
+Добавь в проект скиллы из репозитория https://github.com/bitrix-tools/best-practice 
+```
+
 Через библиотеку оркестрации скиллов [skills](https://www.npmjs.com/package/skills), все скиллы сразу:
 ```bash
 npx skills add bitrix-tools/best-practice
