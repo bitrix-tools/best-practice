@@ -5,13 +5,8 @@ description: Use for Bitrix SQL and ORM patterns raw SQL or Connection queries, 
 
 # Bitrix Best Practice SQL
 
-Этот skill — маршрутизатор: он помогает понять, какие SQL/DB best practices нужно открыть для задачи, а не заменяет сами правила.
-
-## Область применения
-
-Skill описывает project-specific best practices для SQL, ORM и доступа к данным в Bitrix.
-
-Используй его только для задач, где есть работа с базой данных: схема, SQL-запросы, ORM-модели, выборки, запись, миграции данных, индексы, транзакции или другие DB-boundary решения. Не используй этот skill как общий style guide для всего PHP-кода.
+Скилл помогает понять, какие нужно использовать SQL/DB best practices.
+Используй его только для задач, где есть работа с базой данных: схема, SQL-запросы, ORM-модели, выборки, запись, миграции данных, индексы, транзакции или другие DB-boundary решения.
 
 ## Как использовать
 
@@ -22,8 +17,6 @@ Skill описывает project-specific best practices для SQL, ORM и до
 5. Предпочитай framework-native и Bitrix-native паттерны работы с данными вместо самодельных SQL- и storage-абстракций.
 
 ## Выбор rule-файла
-
-<!-- rules-dictionary:start -->
 
 ### Когда читать `rules/query-execution.md`
 
@@ -79,5 +72,3 @@ Skill описывает project-specific best practices для SQL, ORM и до
 - выбор между обычной ORM-записью, batch-операцией, merge/upsert и delete-by-filter;
 - события ORM при записи, `ignoreEvents`, cache cleanup и caveats batch persistence;
 - массовая запись или обновление нескольких строк через ORM lifecycle.
-
-<!-- rules-dictionary:end -->

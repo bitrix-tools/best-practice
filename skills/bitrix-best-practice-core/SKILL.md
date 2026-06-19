@@ -5,13 +5,7 @@ description: Use when designing, reviewing, or implementing any PHP code.
 
 # Bitrix Core Best Practice
 
-Этот skill — маршрутизатор: он помогает понять, какой rule-файл открыть, а не заменяет сами правила.
-
-## Область применения
-
-Skill описывает project-specific best practices для Bitrix.
-
-Начинай с rule-файла, который ближе всего к слою, который затрагивает задача. Не используй этот skill как общий style guide для всего PHP-кода.
+Скилл помогает понять, какие нужно использовать Bitrix/PHP best practices.
 
 ## Как использовать
 
@@ -21,8 +15,6 @@ Skill описывает project-specific best practices для Bitrix.
 4. Предпочитай framework-native паттерны Bitrix вместо собственных абстракций.
 
 ## Выбор rule-файла
-
-<!-- rules-dictionary:start -->
 
 ### Когда читать `rules/controller.md`
 
@@ -199,5 +191,3 @@ Skill описывает project-specific best practices для Bitrix.
 - выбор между простым TTL-cache, managed invalidation по key/dir и tag-based invalidation;
 - `CPHPCache`, `CCacheManager`, `$CACHE_MANAGER` или `CStackCacheManager` как legacy trigger;
 - derived read-cache, который можно потерять и пересчитать, в отличие от runtime-state и постоянной конфигурации.
-
-<!-- rules-dictionary:end -->
