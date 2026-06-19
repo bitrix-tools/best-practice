@@ -16,6 +16,8 @@ description: Use when designing, reviewing, or implementing any PHP code.
 
 ## Выбор rule-файла
 
+<!-- rules-dictionary:start -->
+
 ### Когда читать `rules/controller.md`
 
 Читай `rules/controller.md`, если задача затрагивает хотя бы одну из этих областей:
@@ -191,3 +193,5 @@ description: Use when designing, reviewing, or implementing any PHP code.
 - выбор между простым TTL-cache, managed invalidation по key/dir и tag-based invalidation;
 - `CPHPCache`, `CCacheManager`, `$CACHE_MANAGER` или `CStackCacheManager` как legacy trigger;
 - derived read-cache, который можно потерять и пересчитать, в отличие от runtime-state и постоянной конфигурации.
+
+<!-- rules-dictionary:end -->

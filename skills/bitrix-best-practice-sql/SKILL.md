@@ -18,6 +18,8 @@ description: Use for Bitrix SQL and ORM patterns raw SQL or Connection queries, 
 
 ## Выбор rule-файла
 
+<!-- rules-dictionary:start -->
+
 ### Когда читать `rules/query-execution.md`
 
 Читай `rules/query-execution.md`, если задача затрагивает хотя бы одну из этих областей:
@@ -72,3 +74,5 @@ description: Use for Bitrix SQL and ORM patterns raw SQL or Connection queries, 
 - выбор между обычной ORM-записью, batch-операцией, merge/upsert и delete-by-filter;
 - события ORM при записи, `ignoreEvents`, cache cleanup и caveats batch persistence;
 - массовая запись или обновление нескольких строк через ORM lifecycle.
+
+<!-- rules-dictionary:end -->
