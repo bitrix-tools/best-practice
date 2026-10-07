@@ -1,0 +1,20 @@
+{
+  "name": "bitrix-best-practice",
+  "interface": {
+    "displayName": "Bitrix Best Practice"
+  },
+  "plugins": [
+    {
+      "name": "bitrix-best-practice",
+      "source": {
+        "source": "local",
+        "path": "./"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

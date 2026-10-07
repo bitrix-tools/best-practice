@@ -1,0 +1,15 @@
+{
+  "name": "bitrix-best-practice",
+  "owner": { "name": "Bitrix Best Practice" },
+  "plugins": [
+    {
+      "name": "bitrix-best-practice",
+      "source": "./",
+      "description": "Bitrix CMS and Bitrix24 best practices for PHP, core APIs, SQL and ORM.",
+      "skills": [
+        "./skills/bitrix-best-practice-core",
+        "./skills/bitrix-best-practice-sql"
+      ]
+    }
+  ]
+}

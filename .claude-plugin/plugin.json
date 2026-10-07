@@ -1,0 +1,9 @@
+{
+  "name": "bitrix-best-practice",
+  "version": "1.0.0",
+  "description": "Bitrix CMS and Bitrix24 best practices for PHP, core APIs, SQL and ORM.",
+  "author": { "name": "Bitrix Best Practice" },
+  "homepage": "https://github.com/bitrix-tools/best-practice",
+  "repository": "https://github.com/bitrix-tools/best-practice",
+  "keywords": ["bitrix", "bitrix24", "php", "sql", "orm", "skills"]
+}
