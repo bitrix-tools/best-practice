@@ -43,7 +43,7 @@ metadata:
 4. Выбери образец формы: [rule-file-example-minimal.md](rule-file-example-minimal.md) по умолчанию, [rule-file-example-complex.md](rule-file-example-complex.md) только для сложных тем.
 5. Сначала напиши правила, затем примеры, затем бинарный чеклист.
 6. Проверь, все ли самостоятельные decision points, edge cases, compatibility paths и исключения получили примеры; если нет, добавь ещё `## Example N`, не ограничиваясь двумя секциями.
-7. Проверь, как `SKILL.md` в target directory маршрутизирует rule-файлы; если там есть явный router-блок вида «Когда читать `rules/...`», добавь для нового rule-файла корректный trigger-блок по образцу из [skill-router-entry-example.md](skill-router-entry-example.md), чтобы он стал discoverable.
+7. Проверь, как `SKILL.md` в target directory маршрутизирует rule-файлы; если там есть явный router-блок вида «Когда читать <имя-файла>.md», добавь для нового rule-файла корректный trigger-блок по образцу из [skill-router-entry-example.md](skill-router-entry-example.md), чтобы он стал discoverable.
 8. Удали общие рассуждения, повторы и пункты, где в одном bullet смешано несколько норм.
 9. Проверь, что файл помогает агенту принимать решения в коде, а не превращается в мини-учебник по всему Bitrix.
 

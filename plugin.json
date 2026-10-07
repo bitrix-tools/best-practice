@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "bitrix-best-practice",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "Bitrix CMS and Bitrix24 best practices for PHP, core APIs, SQL and ORM.",
   "author": { "name": "Bitrix Best Practice" },
   "homepage": "https://github.com/bitrix-tools/best-practice",

@@ -20,9 +20,9 @@ description: Use for Bitrix SQL and ORM patterns raw SQL or Connection queries, 
 
 <!-- rules-dictionary:start -->
 
-### Когда читать `rules/query-execution.md`
+### Когда читать query-execution.md
 
-Читай `rules/query-execution.md`, если задача затрагивает хотя бы одну из этих областей:
+Читай [query-execution.md](rules/query-execution.md), если задача затрагивает хотя бы одну из этих областей:
 
 - `Bitrix\Main\Application::getConnection()`, `Bitrix\Main\DB\Connection` или `getSqlHelper()`;
 - `query()`, `queryScalar()`, `queryExecute()`, `add()`, `addMulti()` или `Bitrix\Main\DB\Result`;
@@ -31,9 +31,9 @@ description: Use for Bitrix SQL and ORM patterns raw SQL or Connection queries, 
 - замену legacy `$DB` / `CDatabase` на D7 DB API;
 - выбор между raw SQL через `Connection` и более высокоуровневым framework-native DB path.
 
-### Когда читать `rules/orm-datamanager-map.md`
+### Когда читать orm-datamanager-map.md
 
-Читай `rules/orm-datamanager-map.md`, если задача затрагивает хотя бы одну из этих областей:
+Читай [orm-datamanager-map.md](rules/orm-datamanager-map.md), если задача затрагивает хотя бы одну из этих областей:
 
 - класс `*Table extends Bitrix\Main\ORM\Data\DataManager`;
 - `getTableName()`, `getConnectionName()`, `getMap()`, `getUfId()`, `postInitialize()` или `setDefaultScope()`;
@@ -42,9 +42,9 @@ description: Use for Bitrix SQL and ORM patterns raw SQL or Connection queries, 
 - primary key, autocomplete, validators, save/fetch modifiers, title и default values в entity map;
 - выбор между typed field objects и старым массивом в `getMap()`.
 
-### Когда читать `rules/orm-objectify.md`
+### Когда читать orm-objectify.md
 
-Читай `rules/orm-objectify.md`, если задача затрагивает хотя бы одну из этих областей:
+Читай [orm-objectify.md](rules/orm-objectify.md), если задача затрагивает хотя бы одну из этих областей:
 
 - `Bitrix\Main\ORM\Objectify\EntityObject`, `Collection`, `createObject()`, `createCollection()`, `wakeUpObject()` или `wakeUpCollection()`;
 - `get()`, `require()`, `remindActual()`, `fill()`, `isFilled()`, `isChanged()`, `collectValues()`;
@@ -53,9 +53,9 @@ description: Use for Bitrix SQL and ORM patterns raw SQL or Connection queries, 
 - выбор между Objectify-объектами и массивами результата;
 - object state (`RAW`, `ACTUAL`, `CHANGED`, `DELETED`) и in-memory поведение ORM.
 
-### Когда читать `rules/orm-query-filter.md`
+### Когда читать orm-query-filter.md
 
-Читай `rules/orm-query-filter.md`, если задача затрагивает хотя бы одну из этих областей:
+Читай [orm-query-filter.md](rules/orm-query-filter.md), если задача затрагивает хотя бы одну из этих областей:
 
 - `DataManager::query()`, `getList()`, `getRow()`, `getByPrimary()` или `getCount()`;
 - `Bitrix\Main\ORM\Query\Query`, `Query::filter()`, `ConditionTree`, `where*`, `having*`, `logic()` или nested filters;
@@ -64,9 +64,9 @@ description: Use for Bitrix SQL and ORM patterns raw SQL or Connection queries, 
 - `buildFilterSql()`, `disableDataDoubling()`, private fields, aggregation/object-fetch restrictions;
 - выбор между modern query builder и legacy filter array.
 
-### Когда читать `rules/orm-persistence-write.md`
+### Когда читать orm-persistence-write.md
 
-Читай `rules/orm-persistence-write.md`, если задача затрагивает хотя бы одну из этих областей:
+Читай [orm-persistence-write.md](rules/orm-persistence-write.md), если задача затрагивает хотя бы одну из этих областей:
 
 - `DataManager::add()`, `update()`, `delete()`, `addMulti()`, `updateMulti()` или object/collection `save()`;
 - `DeleteByFilterTrait::deleteByFilter()`, `MergeTrait::merge()` или low-level ORM write helpers;

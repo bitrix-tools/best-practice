@@ -5,16 +5,16 @@
 Используй его только для секций вида:
 
 - `## Выбор rule-файла`
-- `### Когда читать rules/<file>.md`
+- `### Когда читать <file>.md`
 
 Не используй этот reference как шаблон самого `rules/*.md`; для этого смотри [rule-file-standard.md](rule-file-standard.md), [rule-file-example-minimal.md](rule-file-example-minimal.md) и [rule-file-example-complex.md](rule-file-example-complex.md).
 
 ## Базовый шаблон
 
 ```md
-### Когда читать `rules/<file-name>.md`
+### Когда читать <file-name>.md
 
-Читай `rules/<file-name>.md`, если задача затрагивает хотя бы одну из этих областей:
+Читай [<file-name>.md](rules/<file-name>.md), если задача затрагивает хотя бы одну из этих областей:
 
 - <сущность / класс / API / путь 1>;
 - <сущность / класс / API / путь 2>;
@@ -31,9 +31,9 @@
 ## Minimal example
 
 ```md
-### Когда читать `rules/request-dto.md`
+### Когда читать request-dto.md
 
-Читай `rules/request-dto.md`, если задача затрагивает хотя бы одну из этих областей:
+Читай [request-dto.md](rules/request-dto.md), если задача затрагивает хотя бы одну из этих областей:
 
 - request DTO, input object или request model для controller action;
 - валидация и нормализация связанного набора входных данных до вызова service;
@@ -43,9 +43,9 @@
 ## Complex example
 
 ```md
-### Когда читать `rules/routing.md`
+### Когда читать routing.md
 
-Читай `rules/routing.md`, если задача затрагивает хотя бы одну из этих областей:
+Читай [routing.md](rules/routing.md), если задача затрагивает хотя бы одну из этих областей:
 
 - файл в `<module>/install/routes/` или регистрация маршрутов в `/bitrix/routes/` и `/local/routes/`;
 - `RoutingConfigurator`, `prefix`, `group`, HTTP-методы маршрута, `where`, `default`, `name`;
