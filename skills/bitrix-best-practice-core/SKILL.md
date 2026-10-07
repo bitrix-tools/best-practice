@@ -194,4 +194,14 @@ description: Use when designing, reviewing, or implementing any PHP code.
 - `CPHPCache`, `CCacheManager`, `$CACHE_MANAGER` или `CStackCacheManager` как legacy trigger;
 - derived read-cache, который можно потерять и пересчитать, в отличие от runtime-state и постоянной конфигурации.
 
+### Когда читать `rules/event.md`
+
+Читай `rules/event.md`, если задача затрагивает хотя бы одну из этих областей:
+
+- `Bitrix\Main\Event`, `EventResult`, `EventManager`, `send()` или `getResults()`;
+- генерацию классов событий и обработчиков через Bitrix CLI;
+- создание собственного события, контракт параметров и ответов обработчиков или отмену операции по результатам события;
+- `addEventHandler()`, `registerEventHandler()`, compatible-варианты, порядок вызова и снятие подписок;
+- `AddEventHandler()` или `RegisterModuleDependences()` как legacy trigger и перенос позиционных обработчиков на D7.
+
 <!-- rules-dictionary:end -->
