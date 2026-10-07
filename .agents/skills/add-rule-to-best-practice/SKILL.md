@@ -2,6 +2,8 @@
 name: add-rule-to-best-practice
 description: Создает и усиливает rule-файлы для best-practice skills с каталогом `rules/`. Используй, когда нужно добавить новый раздел best-practice, переписать существующий `rules/*.md`, сделать rule-файл понятнее для AI и привести его к единому AI-first стандарту.
 disable-model-invocation: true
+metadata:
+  internal: true
 ---
 
 # Add Rule To Best Practice
