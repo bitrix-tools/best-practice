@@ -9,6 +9,10 @@
 - Переопределяя `getDefaultPreFilters()`, расширяй `parent::getDefaultPreFilters()`, а не пересобирай базовую защиту с нуля без необходимости.
 - В `*Action()` держи только orchestration: принять вход, вызвать прикладной код, собрать и вернуть результат.
 - Возвращай ответ штатными механизмами Bitrix: plain data, объекты `HttpResponse` и их наследников, а также helper'ы вроде `renderView()`, `renderComponent()`, `renderComponentAjax()`, `renderExtension()` и `redirectTo()`.
+- Для HTML-страницы, интерфейс которой строит JS-расширение, возвращай `renderExtension()`; это клиентский рендеринг, не SSR.
+- Для `renderExtension()` задавай в `config.php` расширения непустой строковый `controllerEntrypoint` с именем доступной JS-функции; она получает CSS-селектор созданного контейнера и параметры из PHP.
+- В параметры `renderExtension()` передавай только доступные клиенту JSON-сериализуемые данные; сериализацию и создание контейнера оставляй фреймворку.
+- Выбирай `withSiteTemplate` явно по сценарию: `true` (по умолчанию) для страницы с шаблоном сайта, `false` для интерфейса без него; загрузка ресурсов расширения сохраняется в обоих случаях.
 - Ошибки добавляй через `addError()` и совместимые исключения lifecycle'а контроллера; не изобретай в контроллере отдельный протокол ошибок поверх стандартного.
 - Не держи в контроллере основную бизнес-логику, тяжелые преобразования данных и неочевидные побочные эффекты; выноси их в отдельные классы и слои.
 - Не инициализируй сервисы вручную в `init()` и не собирай их через ad hoc код в action'ах; зависимости пробрасывай через параметры `*Action()`-методов, `AutoWire` и контейнерные механизмы фреймворка.
@@ -178,6 +182,75 @@ final class ExampleCurrentUserController extends Controller
 }
 ```
 
+## Пример 6
+
+Action возвращает страницу JS-расширения через `renderExtension()`: фреймворк создаёт контейнер, загружает расширение и на `BX.ready` вызывает его entrypoint с селектором и параметрами. Здесь интерфейс открывается без шаблона сайта; для обычной страницы с шаблоном используй `withSiteTemplate: true`. URL на этот action объявляй по [rules/routing.md](./routing.md).
+
+Контроллер:
+
+```php
+use Bitrix\Main\Engine\ActionFilter\Attribute\Rule\Authentication;
+use Bitrix\Main\Engine\ActionFilter\Attribute\Rule\HttpMethod;
+use Bitrix\Main\Engine\Controller;
+use Bitrix\Main\Engine\Response\Render\Extension;
+
+final class ExamplePageController extends Controller
+{
+	#[Authentication]
+	#[HttpMethod([HttpMethod::METHOD_GET])]
+	public function openAction(): Extension
+	{
+		return $this->renderExtension('example.page', [
+			'title' => 'Example',
+		], withSiteTemplate: false);
+	}
+}
+```
+
+Конфигурация расширения `example/install/js/example/page/config.php`:
+
+```php
+<?php
+
+if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
+{
+	die();
+}
+
+return [
+	'js' => './dist/page.bundle.js',
+	'rel' => ['main.core'],
+	'controllerEntrypoint' => 'BX.Example.Page.init',
+];
+```
+
+`bundle.config.js` в том же каталоге связывает экспорт `Page` с namespace `BX.Example`:
+
+```js
+export default {
+	input: './src/page.js',
+	output: './dist/page.bundle.js',
+	namespace: 'BX.Example',
+};
+```
+
+`src/page.js` экспортирует класс с entrypoint. Первый аргумент — строка-селектор, а не DOM-элемент; второй — объект из PHP-параметров:
+
+```js
+import { Dom } from 'main.core';
+
+export class Page
+{
+	static init(selector, options)
+	{
+		const container = document.querySelector(selector);
+		Dom.append(Dom.create('h1', { text: options.title }), container);
+	}
+}
+```
+
+Перед использованием собери расширение штатным сборщиком. Имя `BX.Example.Page.init` в `controllerEntrypoint` должно совпадать с namespace сборки, экспортом класса и именем метода. Отсутствующий, пустой или нестроковый `controllerEntrypoint` приводит к `InvalidConfigExtensionException`; недоступная JS-функция — к ошибке в браузере.
+
 ## Чеклист
 
 - Контроллер наследуется от корректного базового controller-класса?
@@ -188,4 +261,6 @@ final class ExampleCurrentUserController extends Controller
 - Текущий пользователь берется через `CurrentUser` или `$this->getCurrentUser()`, а не через global `$USER`?
 - Связанные входные данные action сгруппированы в request object или DTO, если сигнатура начала разрастаться или требует валидации?
 - Ответ возвращается через штатный response-механизм Bitrix?
+- Для `renderExtension()` задан доступный `controllerEntrypoint`, принимающий селектор и параметры, а расширение собрано?
+- Параметры `renderExtension()` JSON-сериализуемы и предназначены для клиента, а `withSiteTemplate` соответствует сценарию страницы?
 - Ошибки оформляются через стандартный controller lifecycle?
