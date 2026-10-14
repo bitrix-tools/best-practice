@@ -47,7 +47,7 @@ final class AccessTokenCodec
 		return JWT::encode([
 			'sub' => $userId,
 			'iat' => time(),
-			'exp' => time() + 3600,
+			'exp' => time() + 60 * 60,
 		], $secret, 'HS256');
 	}
 

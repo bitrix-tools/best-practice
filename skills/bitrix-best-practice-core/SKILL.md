@@ -1,6 +1,6 @@
 ---
 name: bitrix-best-practice-core
-description: Use when designing, reviewing, or implementing any PHP code.
+description: Use when designing, writing, or reviewing PHP in Bitrix CMS or Bitrix24, including controllers, HTTP requests and responses, JSON payloads, routing, module loading, geolocation, URLs, outbound HTTP integrations, JWT, dates and time, configuration, logging, UUID generation, validation, dependency injection, persistent storage, caching, events, error handling, and operation results. Guides selection of Bitrix APIs and framework patterns.
 ---
 
 # Bitrix Core Best Practice
@@ -89,8 +89,8 @@ description: Use when designing, reviewing, or implementing any PHP code.
 - `Bitrix\Main\Web\IpAddress` в контексте GeoIP lookup, range cache или различий между IPv4 и IPv6 для geodata;
 - custom GeoIP handler, наследник `Bitrix\Main\Service\GeoIp\Base` или регистрация через `onMainGeoIpHandlersBuildList`;
 - post-processing GeoIP результата через `onGeoIpGetResult`;
-- выбор между простым string lookup и полным `Result`-based GeoIP lookup.
-- определение геолокации
+- выбор между простым string lookup и полным `Result`-based GeoIP lookup;
+- определение геолокации по IP-адресу.
 
 ### Когда читать uri.md
 

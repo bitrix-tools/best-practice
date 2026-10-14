@@ -64,7 +64,7 @@ final class DashboardSummaryProvider
 		$cacheId = 'vendor.example.dashboard.summary.v1.' . $userId;
 		$cacheDir = '/vendor.example/dashboard_summary';
 
-		if ($cache->initCache(300, $cacheId, $cacheDir))
+		if ($cache->initCache(5 * 60, $cacheId, $cacheDir))
 		{
 			return $cache->getVars();
 		}
@@ -108,7 +108,7 @@ use Bitrix\Main\Data\ManagedCache;
 
 final class DepartmentMapProvider
 {
-	private const CACHE_TTL = 3600;
+	private const CACHE_TTL = 60 * 60;
 	private const CACHE_KEY = 'vendor.example.department_map.v1';
 	private const CACHE_DIR = 'vendor.example.department';
 
@@ -168,7 +168,7 @@ final class CompanyStructureProvider
 		$cacheId = 'vendor.example.company_structure.v1.' . $iblockId;
 		$cacheDir = '/vendor.example/company_structure';
 
-		if ($cache->initCache(2592000, $cacheId, $cacheDir))
+		if ($cache->initCache(30 * 24 * 60 * 60, $cacheId, $cacheDir))
 		{
 			return $cache->getVars();
 		}
@@ -216,21 +216,27 @@ final class CompanyStructureProvider
 
 global $CACHE_MANAGER;
 
+// Демо-загрузчик; в существующем коде здесь используется выборка из инфоблока.
+$loadSections = static function(int $iblockId): array {
+	return [
+		['iblockId' => $iblockId, 'name' => 'Head Office'],
+	];
+};
+
 $cache = new CPHPCache();
 $cacheId = 'menu.sections.' . $iblockId;
 $cacheDir = '/menu/sections';
 
-if ($cache->InitCache(3600, $cacheId, $cacheDir))
+if ($cache->InitCache(60 * 60, $cacheId, $cacheDir))
 {
 	$sections = $cache->GetVars();
 }
 elseif ($cache->StartDataCache())
 {
 	$CACHE_MANAGER->StartTagCache($cacheDir);
+	$sections = $loadSections($iblockId);
 	$CACHE_MANAGER->RegisterTag('iblock_id_' . $iblockId);
 	$CACHE_MANAGER->EndTagCache();
-
-	$sections = $this->loadSections($iblockId);
 	$cache->EndDataCache($sections);
 }
 ```
@@ -263,7 +269,7 @@ final class PortalSnapshotCache
 		$cacheId = 'vendor.example.portal_snapshot.payload.' . $portalId;
 		$cacheDir = '/vendor.example/portal_snapshot';
 
-		if ($localCache->initCache(600, $cacheId, $cacheDir))
+		if ($localCache->initCache(10 * 60, $cacheId, $cacheDir))
 		{
 			return $localCache->getVars();
 		}

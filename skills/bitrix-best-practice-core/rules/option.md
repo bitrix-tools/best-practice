@@ -110,7 +110,7 @@ final class ImportRunner
 		$checkpoint = $storage->get('vendor.example.import.' . $sessionId, []);
 
 		$checkpoint = $this->runChunk($checkpoint, $chunkSize);
-		$storage->set('vendor.example.import.' . $sessionId, $checkpoint, 86400);
+		$storage->set('vendor.example.import.' . $sessionId, $checkpoint, 24 * 60 * 60);
 	}
 
 	private function runChunk(array $checkpoint, int $chunkSize): array

@@ -83,7 +83,7 @@ final class RecoverAccessRequestService
 
 	public function markSent(int $userId): void
 	{
-		$this->storage->set('intranet.recover_access.' . $userId, ['sent' => true], 3600);
+		$this->storage->set('intranet.recover_access.' . $userId, ['sent' => true], 60 * 60);
 	}
 }
 ```
