@@ -110,6 +110,15 @@ description: Use when designing, writing, or reviewing PHP in Bitrix CMS or Bitr
 - замена `file_get_contents($url)` / `stream_context_create()` для remote `http`/`https` URL;
 - замена `curl_init`, `curl_setopt`, `curl_exec` и других raw `curl_*` вызовов на framework-native transport.
 
+### Когда читать json.md
+
+Читай [json.md](rules/json.md), если задача затрагивает хотя бы одну из этих областей:
+
+- `Bitrix\\Main\\Web\\Json`, `Json::encode()`, `Json::decode()` или `Json::validate()`;
+- замену прямых `json_encode()` / `json_decode()` или локальных JSON codec-helper-ов;
+- `Json::DEFAULT_OPTIONS`, encoding flags, `ArgumentException` при encode/decode или проверку decoded структуры;
+- JSON-строку внутри HTML-атрибута или выбор между сериализацией строки и готовым JSON response.
+
 ### Когда читать jwt.md
 
 Читай [jwt.md](rules/jwt.md), если задача затрагивает хотя бы одну из этих областей:
