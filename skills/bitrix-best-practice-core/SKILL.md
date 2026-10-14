@@ -89,8 +89,8 @@ description: Use when designing, reviewing, or implementing any PHP code.
 - `Bitrix\Main\Web\IpAddress` в контексте GeoIP lookup, range cache или различий между IPv4 и IPv6 для geodata;
 - custom GeoIP handler, наследник `Bitrix\Main\Service\GeoIp\Base` или регистрация через `onMainGeoIpHandlersBuildList`;
 - post-processing GeoIP результата через `onGeoIpGetResult`;
-- выбор между простым string lookup и полным `Result`-based GeoIP lookup.
-- определение геолокации
+- выбор между простым string lookup и полным `Result`-based GeoIP lookup;
+- определение геолокации по IP-адресу.
 
 ### Когда читать uri.md
 

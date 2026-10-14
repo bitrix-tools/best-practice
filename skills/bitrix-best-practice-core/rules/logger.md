@@ -87,7 +87,10 @@ return [
 			],
 			'vendor.example.log.formatter' => [
 				'className' => LogFormatter::class,
-				'constructorParams' => [false, 30],
+				'constructorParams' => [
+					false, // Не выводить аргументы в stack trace.
+					30, // Максимальная длина представления аргумента в символах.
+				],
 			],
 		],
 		'readonly' => true,
@@ -96,7 +99,10 @@ return [
 		'value' => [
 			'vendor.example.portal_sync' => [
 				'className' => FileLogger::class,
-				'constructorParams' => ['/var/log/php/portal_sync.log', 1048576],
+				'constructorParams' => [
+					'/var/log/php/portal_sync.log',
+					1024 * 1024, // Максимальный размер лог-файла: 1 МиБ.
+				],
 				'level' => \Psr\Log\LogLevel::INFO,
 				'formatter' => 'vendor.example.log.formatter',
 			],

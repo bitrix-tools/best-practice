@@ -58,7 +58,7 @@ final class RecoverAccessRequestService
 		$this->storage->set(
 			'intranet.otp.recover_access_request.' . $userId,
 			['sentAt' => time()],
-			3600,
+			60 * 60,
 		);
 	}
 }
@@ -84,7 +84,7 @@ final class ReindexRunner
 		$step = $continue ? $storage->get('search_reindex', []) : [];
 
 		$step = $this->runChunk($step, $maxExecutionTime);
-		$storage->set('search_reindex', $step, 86400);
+		$storage->set('search_reindex', $step, 24 * 60 * 60);
 	}
 
 	private function runChunk(array $step, int $maxExecutionTime): array
@@ -121,7 +121,7 @@ final class UploadSessionContext
 		$this->storage->set(
 			'main.upload_session.' . $sessionId,
 			$context,
-			3 * 24 * 3600,
+			3 * 24 * 60 * 60,
 		);
 	}
 }
@@ -143,7 +143,7 @@ final class CounterPresenter
 		$cacheId = 'dashboard.summary.' . $userId;
 		$cacheDir = '/dashboard/summary';
 
-		if ($cache->initCache(300, $cacheId, $cacheDir))
+		if ($cache->initCache(5 * 60, $cacheId, $cacheDir))
 		{
 			return $cache->getVars();
 		}
