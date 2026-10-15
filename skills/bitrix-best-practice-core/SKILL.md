@@ -18,6 +18,15 @@ description: Use when designing, writing, or reviewing PHP in Bitrix CMS or Bitr
 
 <!-- rules-dictionary:start -->
 
+### Когда читать command.md
+
+Читай [command.md](rules/command.md), если задача затрагивает хотя бы одну из этих областей:
+
+- `Bitrix\Main\Command\CommandInterface`, `AbstractCommand` или создание прикладной команды;
+- `run()`, `execute()`, `beforeRun()` и `afterRun()` в lifecycle команды;
+- `CommandValidationException`, `CommandException` или обработку результата команды;
+- валидацию входных данных команды или транзакционную границу её выполнения.
+
 ### Когда читать controller.md
 
 Читай [controller.md](rules/controller.md), если задача затрагивает хотя бы одну из этих областей:

@@ -15,7 +15,7 @@
 - Для одного-двух независимых scalar-параметров `*Action()` предпочитай validation attributes прямо на параметрах метода, а не искусственный DTO только ради одной проверки.
 - Если action принимает связный набор входных данных с маппингом, нормализацией, несколькими правилами или вложенной структурой, группируй его в request DTO и пробрасывай через `ValidationParameter`.
 - Держи request DTO сфокусированным на input contract: чтение из `Request`, простая нормализация, attributes на свойствах и больше ничего.
-- Если объект создается или живет вне controller AutoWire, валидируй его явным `ValidationService::validate()` в месте, где формируется или принимается этот контракт.
+- Если объект создается или живет вне controller AutoWire и его lifecycle не выполняет валидацию автоматически, валидируй его явным `ValidationService::validate()` в месте, где формируется или принимается этот контракт. Для наследника `AbstractCommand` штатную валидацию уже вызывает `run()`; смотри [command.md](command.md).
 - Используй built-in attributes из `Bitrix\Main\Validation\Rule\...` как default path до тех пор, пока контракт выражается штатными правилами без дополнительной ветвящейся логики.
 - `Bitrix\Main\Validation\Rule\Range` используй для одной числовой границы `min..max`; не раскладывай такой контракт на соседние `Bitrix\Main\Validation\Rule\Min` и `Bitrix\Main\Validation\Rule\Max`, если нужен именно единый диапазон.
 - `Bitrix\Main\Validation\Rule\PhoneOrEmail` используй только когда оба формата одинаково допустимы по контракту; не подменяй им более строгий доменный выбор между телефоном и email.
@@ -32,7 +32,7 @@
 
 - Если вход состоит из нескольких независимых scalar-параметров и каждому нужна локальная проверка, ставь attributes прямо на `*Action()`-параметры.
 - Если несколько параметров образуют один связный input contract, который нужно собрать из `Request`, нормализовать или рекурсивно валидировать, используй request DTO + `ValidationParameter`.
-- Если объект создается вне controller binder, например в command, service или отдельном application flow, валидируй его через `ValidationService::validate()`.
+- Если объект создается вне controller binder и не имеет встроенного validation lifecycle, валидируй его через `ValidationService::validate()`. Наследника `AbstractCommand` запускай через `run()` со встроенной валидацией.
 - Если правило относится к одному значению, выбирай property attribute; если правило описывает отношение между несколькими полями, выбирай class-level attribute.
 - Если built-in rules покрывают контракт без дополнительных веток, не пиши custom validator.
 - Если нужно ограничить, какие rules работают в конкретном сценарии `create` / `update`, добавляй `groups` в attribute и передавай группу в `ValidationService`.
