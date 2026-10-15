@@ -75,4 +75,13 @@ description: Use for Bitrix SQL and ORM patterns raw SQL or Connection queries, 
 - события ORM при записи, `ignoreEvents`, cache cleanup и caveats batch persistence;
 - массовая запись или обновление нескольких строк через ORM lifecycle.
 
+### Когда читать transactions.md
+
+Читай [transactions.md](rules/transactions.md), если задача затрагивает хотя бы одну из этих областей:
+
+- `Connection::startTransaction()`, `commitTransaction()` или `rollbackTransaction()`;
+- вложенные транзакции, savepoint, баланс уровней или `TransactionException`;
+- фиксацию и откат нескольких SQL/ORM-операций в одном соединении;
+- различия transaction API MySQL, PostgreSQL, MSSQL и Oracle.
+
 <!-- rules-dictionary:end -->
